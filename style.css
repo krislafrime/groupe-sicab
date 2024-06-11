@@ -1,0 +1,645 @@
+
+/********** Template CSS **********/
+.forum-regular {
+    font-family: "Forum", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+:root {
+    --primary: #0a8f10;
+    --secondary: #8D9297;
+    --light: #F8F9FA;
+    --dark: #182333;
+}
+
+.back-to-top {
+    position: fixed;
+    display: none;
+    right: 30px;
+    bottom: 30px;
+    z-index: 99;
+}
+
+
+/*** Spinner ***/
+#spinner {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s ease-out, visibility 0s linear .5s;
+    z-index: 99999;
+}
+
+#spinner.show {
+    transition: opacity .5s ease-out, visibility 0s linear 0s;
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/*** Button ***/
+.btn {
+    font-weight: 500;
+    transition: .5s;
+}
+
+.btn.btn-primary,
+.btn.btn-outline-primary:hover {
+    color: #FFFFFF;
+}
+
+.btn-square {
+    width: 38px;
+    height: 38px;
+}
+
+.btn-sm-square {
+    width: 32px;
+    height: 32px;
+}
+
+.btn-lg-square {
+    width: 48px;
+    height: 48px;
+}
+
+.btn-square,
+.btn-sm-square,
+.btn-lg-square {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+}
+
+
+/*** Navbar ***/
+.navbar.sticky-top {
+    top: -100px;
+    transition: .5s;
+}
+
+.navbar .navbar-nav .nav-link {
+    margin-left: 30px;
+    padding: 25px 0;
+    color: var(--secondary);
+    font-weight: 500;
+    text-transform: uppercase;
+    outline: none;
+}
+
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link.active {
+    color: var(--primary);
+}
+
+.navbar .dropdown-toggle::after {
+    border: none;
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+
+@media (max-width: 991.98px) {
+    .navbar .navbar-nav .nav-link  {
+        margin-left: 0;
+        padding: 10px 0;
+    }
+
+    .navbar .navbar-nav {
+        margin-top: 25px;
+        border-top: 1px solid #EEEEEE;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar .nav-item .dropdown-menu {
+        display: block;
+        border: none;
+        margin-top: 0;
+        top: 150%;
+        right: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: .5s;
+    }
+
+    .navbar .nav-item:hover .dropdown-menu {
+        top: 100%;
+        visibility: visible;
+        transition: .5s;
+        opacity: 1;
+    }
+}
+
+
+/*** Header ***/
+.carousel-caption {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    text-align: start;
+    background: rgba(0, 0, 0, .65);
+    z-index: 1;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 15%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 4rem;
+    height: 4rem;
+    background-color: var(--dark);
+    border: 15px solid var(--dark);
+    border-radius: 50px;
+}
+
+.carousel-caption .breadcrumb-item+.breadcrumb-item::before {
+    content: "\f111";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    #header-carousel .carousel-item {
+        position: relative;
+        min-height: 450px;
+    }
+    
+    #header-carousel .carousel-item img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        width: 3rem;
+        height: 3rem;
+        border-width: 12px;
+    }
+}
+
+.page-header {
+    background: linear-gradient(rgba(0, 0, 0, .65), rgba(0, 0, 0, .65)), url(../img/carousel-1.jpg) center center no-repeat;
+    background-size: cover;
+}
+
+.page-header .breadcrumb-item+.breadcrumb-item::before {
+    color: #999999;
+}
+
+
+/*** Facts ***/
+.facts-overlay {
+    position: absolute;
+    padding: 30px;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: rgba(0, 0, 0, .65);
+}
+
+.facts-overlay h1 {
+    font-size: 120px;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--primary);
+}
+
+.facts-overlay a:hover {
+    color: var(--primary) !important;
+}
+
+
+/*** Service ***/
+.service-text::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 0;
+    top: 0;
+    left: 0;
+    background: var(--primary);
+    opacity: 0;
+    transition: .5s;
+}
+
+.service-item:hover .service-text::before {
+    height: 100%;
+    opacity: 1;
+}
+
+.service-text * {
+    position: relative;
+    transition: .5s;
+    z-index: 1;
+}
+
+.service-item:hover .service-text * {
+    color: #FFFFFF !important;
+}
+
+
+/*** Appointment ***/
+.appointment {
+    background: linear-gradient(rgba(0, 0, 0, .65), rgba(0, 0, 0, .65)), url(../img/carousel-2.webp) center center no-repeat;
+    background-size: cover;
+}
+
+.appointment-text{
+    margin: auto 0;
+}
+/* ===== ESTIMATE =====*/
+
+/* Form container and heading */
+.inline-free-estimate-container {
+    max-width: 750px;
+    margin: 0 auto;
+    border: 0;
+    background-color: transparent;
+    width: 100%;
+    padding: 2rem 0;
+    display: block;
+  }
+  .inline-free-estimate-container #form-heading {
+    text-align: center;
+    text-transform: none;
+    color: #fff;
+    padding: 0 4rem;
+    margin-bottom: 1rem;
+    background-color: transparent;
+  }
+  .inline-free-estimate-container #form-heading p {
+    margin: 0 auto 1rem;
+    font-size: 2rem;
+    line-height: 2.5rem;
+    color: #ffffff;
+    font-weight: 700 !important;
+    font-family: inherit,sans-serif;
+    text-transform: capitalize;
+  }
+  .inline-free-estimate-container #form-heading span {
+    background-color: #0a8f10;
+    text-align: center;
+    font-weight: 700;
+    padding: 2em;
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    transition: background-color 0.5s ease-in-out;
+    border-bottom: 1px solid darken(#0a8f10, 5%);
+  }
+  /* Hide all tabs by default: */
+  .inline-free-estimate-container .tab-content-wrap {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 0 1.5rem;
+  }
+  .inline-free-estimate-container .tab-content-wrap > div {
+    margin-bottom: 15px;
+  }
+  .inline-free-estimate-container .tab {
+    display: none;
+  }
+  
+  /* Make circles that indicate the steps of the form: */
+  .inline-free-estimate-container .step-dot-container {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: center;
+    width: 100%;
+    grid-gap: 75px;
+    padding: 2rem 0;
+    max-width: unset;
+    margin: 0 auto 1rem;
+  }
+  .inline-free-estimate-container .step {
+    height: 30px;
+    width: 30px;
+    margin: 0 2px;
+    border: 2px solid #a2bdd4;
+    background-color: #f6fcff;
+    border-radius: 50%;
+    display: inline-block;
+    transition: none;
+    position: relative;
+    text-align: center;
+  }
+  .inline-free-estimate-container .step-lines {
+    position: relative;
+  }
+  .inline-free-estimate-container .step-lines::after,
+  .inline-free-estimate-container .step-lines::before {
+    content: "";
+    position: absolute;
+    height: 2px;
+    background-color: #a2bdd4;
+    width: 77px;
+  }
+  .inline-free-estimate-container .step-lines::before {
+    right: 32px;
+    top: 13px;
+  }
+  .inline-free-estimate-container .step-lines::after {
+    left: 32px;
+    top: 13px;
+  }.inline-free-estimate-container span.step small {
+    font-size: 1rem;
+    display: inline-block;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    line-height: 0;
+    color: #a2bdd4;
+    position: absolute;
+    transform: translateX(-50%);
+    top: 50%;
+  }
+  
+  /* Mark the active step: */
+  .inline-free-estimate-container .step.active {
+    border: 2px solid #0a8f10;
+    background-color: #fff;
+  }
+  .inline-free-estimate-container .step.active small {
+    color:#0a8f10;
+  }
+  
+  /* Mark the steps that are finished and valid: */
+  .inline-free-estimate-container .step.finish {
+    background-color: #0a8f10;
+    border: 2px solid #0a8f10;
+  }
+  .inline-free-estimate-container .step.finish small {
+    color: #fff;
+  }
+  .inline-free-estimate-container .step.finish + .step-lines::before,
+  .inline-free-estimate-container .step.finish.step-lines::after {
+    background-color: #0a8f10;
+  }
+  /* Style the form */
+  .inline-free-estimate-container #contact_form {
+    background-color: transparent;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0  2rem;
+    box-sizing: border-box;
+  }
+  /* Form layout grid */
+  .inline-free-estimate-container #contact_form .grid-span-12 {
+    grid-column: span 12;
+  }
+  .inline-free-estimate-container #contact_form .grid-span-8 {
+    grid-column: span 8;
+  }
+  .inline-free-estimate-container #contact_form .grid-span-6 {
+    grid-column: span 6;
+  }
+  .inline-free-estimate-container #contact_form .grid-span-4 {
+    grid-column: span 4;
+  }
+  @media screen and (max-width: 968px) {
+    .inline-free-estimate-container #contact_form div[class*="grid-span"] {
+        grid-column: span 12;
+    }
+  }
+  /* Style the input fields */
+  .inline-free-estimate-container #contact_form input,
+  .inline-free-estimate-container #contact_form select {
+    box-sizing: border-box;
+    display: block;
+    padding: 10px;
+    width: 100%;
+    font-size: 15px;
+    outline: none;
+    margin-bottom: 8px;
+  }
+  .inline-free-estimate-container #contact_form input::placeholder {
+    color: #ccc;
+  }
+  .inline-free-estimate-container label.input-labels {
+    font-weight: 700;
+    font-size: .95rem;
+    margin-bottom: 5px;
+    display: block;
+  }
+  .inline-free-estimate-container #contact_form select,
+  .inline-free-estimate-container #contact_form textarea,
+  .inline-free-estimate-container input[type="email"],
+  .inline-free-estimate-container input[type="submit"],
+  .inline-free-estimate-container input[type="text"] {
+    height: 3rem !important;
+    border-radius: 0.5rem;
+    border: 1px solid #d9d9d9;
+    box-shadow: none;
+    padding: 0.5rem 1rem !important;
+    font-size: 1rem !important;
+  }
+  .inline-free-estimate-container #contact_form select {
+    background-color: #fff !important;
+    border-style: solid;
+    border-width: 1px;
+    color: rgba(0, 0, 0, 0.75);
+    display: block;
+    font-family: inherit;
+    font-size: 0.875rem;
+    margin: 0 0 1rem 0;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .inline-free-estimate-container #contact_form textarea {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+    width: 100%;
+    height: 150px !important;
+    font-size: 16px;
+    font-family: arial, sans-serif;
+    box-sizing: border-box;
+  }
+  
+  /* Mark input boxes that gets an error on validation: */
+  .inline-free-estimate-container .invalid-label-hidden {
+    visibility: hidden;
+  }
+  .inline-free-estimate-container .invalid + label.invalid-label {
+    display: block;
+  }
+  .inline-free-estimate-container .invalid-label {
+    color: #f04124;
+    font-size: 12px;
+    display: none;
+    margin-bottom: 13px;
+  }
+  
+  /* Form navigation and submit buttons */
+  .inline-free-estimate-container #contact_form .btn-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 2rem;
+    justify-content: center;
+    padding-top: 2rem;
+  }
+  .inline-free-estimate-container button#nextBtn {
+    order: 1;
+  }
+  .inline-free-estimate-container #contact_form #prevBtn {
+    background-color: transparent;
+    border: 2px solid #0a8f10;
+    color: #0a8f10;
+    order: -2;
+  }
+  .inline-free-estimate-container #contact_form button,
+  .inline-free-estimate-container #contact_form input[type="submit"] {
+    display: block;
+    width: 150px;
+    border-radius: 50px !important;
+    height: 50px;
+    border: none;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: #0a8f10;
+    padding: 15px 0;
+    margin-bottom: 10px;
+    transition: all 0.1s ease;
+    outline: 0;
+    font-size: 0.85rem;
+    letter-spacing: 0.025rem;
+    margin: 0 !important;
+  }
+  .inline-free-estimate-container #contact_form button:hover {
+    cursor: pointer;
+    background-color: #00588e;
+  }
+  .inline-free-estimate-container #contact_form #prevBtn:hover  {
+    color: #00588e;
+    border-color: currentColor;
+  }
+  .inline-free-estimate-container #contact_form input[type="submit"] {
+    background-color: #0a8f10;
+    font-size: 0.85rem !important;
+    font-family: sans-serif;
+  }
+  .inline-free-estimate-container #contact_form input[type="submit"]:hover {
+    background-color: #0a8f10;
+  }
+  /* END ESTIMATE */
+
+/*** Team ***/
+.team-text {
+    position: absolute;
+    width: 75%;
+    bottom: 30px;
+    left: 0;
+    transition: .5s;
+}
+
+.team-item:hover .team-text {
+    width: 100%;
+}
+
+.team-text * {
+    transition: .5s;
+}
+
+.team-item:hover .team-text * {
+    letter-spacing: 2px;
+}
+
+
+/*** Testimonial ***/
+.testimonial-carousel .owl-item img {
+    width: 100px;
+    height: 100px;
+}
+
+.testimonial-carousel .owl-nav {
+    margin-top: 30px;
+    display: flex;
+    justify-content: start;
+}
+
+.testimonial-carousel .owl-nav .owl-prev,
+.testimonial-carousel .owl-nav .owl-next {
+    margin-right: 15px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--dark);
+    border: 2px solid var(--primary);
+    border-radius: 50px;
+    font-size: 18px;
+    transition: .5s;
+}
+
+.testimonial-carousel .owl-nav .owl-prev:hover,
+.testimonial-carousel .owl-nav .owl-next:hover {
+    color: #FFFFFF;
+    background: var(--primary);
+}
+
+
+/*** Footer ***/
+.footer {
+    color: #999999;
+    background-color:black;
+}
+
+.footer .btn.btn-link {
+    display: block;
+    margin-bottom: 5px;
+    padding: 0;
+    text-align: left;
+    color: #999999;
+    font-weight: normal;
+    text-transform: capitalize;
+    transition: .3s;
+}
+
+.footer .btn.btn-link::before {
+    position: relative;
+    content: "\f105";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: #999999;
+    margin-right: 10px;
+}
+
+.footer .btn.btn-link:hover {
+    color: var(--light);
+    letter-spacing: 1px;
+    box-shadow: none;
+}
+
+.footer .copyright {
+    padding: 25px 0;
+    font-size: 15px;
+    border-top: 1px solid rgba(256, 256, 256, .1);
+}
+
+.footer .copyright a {
+    color: var(--light);
+}
+
+.footer .copyright a:hover {
+    color: var(--primary);
+}
